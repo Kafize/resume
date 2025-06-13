@@ -1,0 +1,414 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+/* 主要内容区域样式 */
+.section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+.section h2 {
+    color: #6e8efb;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* 时间线样式 */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #6e8efb;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6e8efb;
+}
+
+.time {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* 列表样式 */
+.experience-list, .work-list, .evaluation-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.experience-list li, .work-list li, .evaluation-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.experience-list li::before, .work-list li::before, .evaluation-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #6e8efb;
+}
+
+/* 技能证书和奖项荣誉列表样式 */
+.skills-list, .awards-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.skills-list li, .awards-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.skills-list li::before, .awards-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: -5px;
+    color: #6e8efb;
+}
+
+.skills-list li::before {
+    content: '📜';
+}
+
+.skills-content, .awards-content {
+    background: rgba(110, 142, 251, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #6e8efb;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 20px 0;
+    }
+
+    .personal-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-item {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 打印样式 */
+@media print {
+    body {
+        background: white;
+    }
+
+    .container {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .section {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+}
+
+/* 主题切换按钮样式 */
+.theme-switch {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #6e8efb;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-icon {
+    font-size: 1.2em;
+}
+
+/* 深色主题样式 */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .container {
+    background-color: #2d2d2d;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .header {
+    background: linear-gradient(135deg, #4a6cf7, #8a4af7);
+}
+
+body.dark-theme .section {
+    background: #363636;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .section h2 {
+    color: #8a4af7;
+    border-bottom-color: #4a4a4a;
+}
+
+body.dark-theme .timeline::before {
+    background: #8a4af7;
+}
+
+body.dark-theme .timeline-item::before {
+    background: #8a4af7;
+}
+
+body.dark-theme .experience-list li::before,
+body.dark-theme .work-list li::before,
+body.dark-theme .evaluation-list li::before,
+body.dark-theme .skills-list li::before,
+body.dark-theme .awards-list li::before {
+    color: #8a4af7;
+}
+
+body.dark-theme .skills-content,
+body.dark-theme .awards-content {
+    background: rgba(138, 74, 247, 0.1);
+    border-left-color: #8a4af7;
+}
+
+body.dark-theme .theme-toggle {
+    background: #8a4af7;
+}
+
+/* 打印样式调整 */
+@media print {
+    .theme-switch {
+        display: none;
+    }
+}
+
+/* 滚动进度条样式 */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #6e8efb, #a777e3);
+    z-index: 1001;
+    transition: width 0.1s ease;
+}
+
+/* 返回顶部按钮样式 */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    background: #6e8efb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-3px);
+    background: #5d7de8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 打字机效果样式 */
+.typing-text {
+    display: inline-block;
+    border-right: 2px solid #6e8efb;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* 卡片悬停效果增强 */
+.section {
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 列表项动画 */
+.experience-list li,
+.work-list li,
+.evaluation-list li,
+.skills-list li,
+.awards-list li {
+    transition: all 0.3s ease;
+    transform: translateX(0);
+}
+
+.experience-list li:hover,
+.work-list li:hover,
+.evaluation-list li:hover,
+.skills-list li:hover,
+.awards-list li:hover {
+    transform: translateX(10px);
+    color: #6e8efb;
+}
+
+/* 深色主题下的新样式 */
+body.dark-theme .scroll-progress {
+    background: linear-gradient(to right, #4a6cf7, #8a4af7);
+}
+
+body.dark-theme .scroll-to-top {
+    background: #8a4af7;
+}
+
+body.dark-theme .scroll-to-top:hover {
+    background: #7a3ae7;
+}
+
+body.dark-theme .typing-text {
+    border-right-color: #8a4af7;
+}
+
+/* 打印样式调整 */
+@media print {
+    .scroll-progress,
+    .scroll-to-top {
+        display: none;
+    }
+} 
